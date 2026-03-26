@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Pizza Finder Vienna</title>
+    <link rel="stylesheet" href="body.css" />
+  </head>
+  <body>
+    <header>
+      <h1>🍕 Pizza Finder Vienna</h1>
+      <p>Pizzerien in Wien nach Bezirk finden</p>
+    </header>
+
+    <main>
+      <section class="intro">
+        <h2>Projektbeschreibung</h2>
+        <p>
+          Dieses Webprojekt zeigt eine Auswahl an Pizzerien in Wien. Die Anzeige
+          erfolgt erst nach Eingabe eines Bezirks.
+        </p>
+      </section>
+
+      <section class="search">
+        <label for="bezirkInput">Bezirk:</label>
+        <input type="number" id="bezirkInput" placeholder="1–23" />
+        <button onclick="filterPizzerien()">Suchen</button>
+        <button onclick="resetFilter()">Reset</button>
+      </section>
+
+      <p id="hinweis" class="hint">
+        Bitte geben Sie einen Bezirk ein, um Pizzerien anzuzeigen.
+      </p>
+
+      <section id="liste" class="grid">
+        <!-- Bezirk 1 -->
+        <article class="card" data-bezirk="1">
+          <h3>Pizzeria Riva</h3>
+          <p>Rotenturmstraße 15, 1010 Wien</p>
+        </article>
+
+        <!-- Bezirk 2 -->
+        <article class="card" data-bezirk="2">
+          <h3>Disco Volante</h3>
+          <p>Praterstraße 56, 1020 Wien</p>
+        </article>
+
+        <!-- Bezirk 3 – Landstraße -->
+        <article class="card" data-bezirk="3">
+          <h3>That's Amore</h3>
+          <p>Messenhausergasse 13, 1030 Wien</p>
+        </article>
+
+        <article class="card" data-bezirk="3">
+          <h3>All' Italiana – Trattoria & Pizzeria</h3>
+          <p>Landstraßer Hauptstraße 71, 1030 Wien</p>
+        </article>
+
+        <article class="card" data-bezirk="3">
+          <h3>Bella Compagnia</h3>
+          <p>Erdbergstraße 21, 1030 Wien</p>
+        </article>
+
+        <!-- Bezirk 4 -->
+        <article class="card" data-bezirk="4">
+          <h3>Pizza Mari</h3>
+          <p>Operngasse 23, 1040 Wien</p>
+        </article>
+        <!-- Bezirk 5 -->
+        <article class="card" data-bezirk="5">
+          <h3>Gondola</h3>
+          <p>Schönbrunner Straße 109, 1050 Wien</p>
+        </article>
+
+        <article class="card" data-bezirk="5">
+          <h3>Pizzeria Mafiosi</h3>
+          <p>Margaretenstraße 61, 1050 Wien</p>
+        </article>
+
+        <article class="card" data-bezirk="5">
+          <h3>Pizzeria Da Antonio</h3>
+          <p>Reinprechtsdorfer Straße 49, 1050 Wien</p>
+        </article>
+
+        <!-- Bezirk 6 -->
+        <article class="card" data-bezirk="6">
+          <h3>Il Sestante</h3>
+          <p>Mittelgasse 29, 1060 Wien</p>
+        </article>
+
+        <!-- Bezirk 7 -->
+        <article class="card" data-bezirk="7">
+          <h3>Pizzeria Osteria da Giovanni</h3>
+          <p>Sigmundsgasse 14, 1070 Wien</p>
+        </article>
+
+        <article class="card" data-bezirk="7">
+          <h3>SETTE Artisan Craft Pizza</h3>
+          <p>Schottenfeldgasse 7, 1070 Wien</p>
+        </article>
+
+        <!-- Bezirk 8 -->
+        <article class="card" data-bezirk="8">
+          <h3>Via Toledo Enopizzeria</h3>
+          <p>Laudongasse 13, 1080 Wien</p>
+        </article>
+
+        <article class="card" data-bezirk="8">
+          <h3>Pizzeria Scarabocchio</h3>
+          <p>Florianigasse 3, 1080 Wien</p>
+        </article>
+
+        <!-- Bezirk 9 – Alsergrund -->
+        <article class="card" data-bezirk="9">
+          <h3>Pizzeria La Tavola</h3>
+          <p>Alser Straße 29, 1090 Wien</p>
+        </article>
+
+        <article class="card" data-bezirk="9">
+          <h3>Pizzeria Da Pino</h3>
+          <p>Nussdorfer Straße 21, 1090 Wien</p>
+        </article>
+
+        <article class="card" data-bezirk="9">
+          <h3>Pizzeria Riva Favorita</h3>
+          <p>Währinger Straße 26, 1090 Wien</p>
+        </article>
+
+        <!-- Bezirk 10 – Favoriten -->
+        <article class="card" data-bezirk="10">
+          <h3>Pizzeria Da Giorgio</h3>
+          <p>Favoritenstraße 85, 1100 Wien</p>
+        </article>
+
+        <article class="card" data-bezirk="10">
+          <h3>Pizzeria Ristorante Napoli</h3>
+          <p>Laxenburger Straße 49, 1100 Wien</p>
+        </article>
+
+        <article class="card" data-bezirk="10">
+          <h3>Pizzeria La Bella</h3>
+          <p>Quellenstraße 51, 1100 Wien</p>
+        </article>
+
+        <!-- Bezirk 11 – Simmering -->
+        <article class="card" data-bezirk="11">
+          <h3>Pizzeria Da Giovanni</h3>
+          <p>Simmeringer Hauptstraße 96, 1110 Wien</p>
+        </article>
+
+        <article class="card" data-bezirk="11">
+          <h3>Pizzeria La Rosa</h3>
+          <p>Geiselbergstraße 22, 1110 Wien</p>
+        </article>
+
+        <article class="card" data-bezirk="11">
+          <h3>Pizzeria San Marco</h3>
+          <p>Enkplatz 4, 1110 Wien</p>
+        </article>
+        <!-- Bezirk 12 – Meidling -->
+        <article class="card" data-bezirk="12">
+          <h3>Pizzeria Da Ferdinando</h3>
+          <p>Meidlinger Hauptstraße 89, 1120 Wien</p>
+        </article>
+
+        <article class="card" data-bezirk="12">
+          <h3>Pizzeria Al Borgo</h3>
+          <p>Eichenstraße 15, 1120 Wien</p>
+        </article>
+
+        <article class="card" data-bezirk="12">
+          <h3>Pizzeria Milano</h3>
+          <p>Schönbrunner Straße 211, 1120 Wien</p>
+        </article>
+        <!-- Bezirk 13 – Hietzing -->
+        <article class="card" data-bezirk="13">
+          <h3>Pizzeria Don Alfredo</h3>
+          <p>Hietzinger Hauptstraße 22, 1130 Wien</p>
+        </article>
+
+        <article class="card" data-bezirk="13">
+          <h3>Pizzeria Mario</h3>
+          <p>Lainzer Straße 12, 1130 Wien</p>
+        </article>
+
+        <article class="card" data-bezirk="13">
+          <h3>Pizzeria Da Salvatore</h3>
+          <p>Speisinger Straße 104, 1130 Wien</p>
+        </article>
+        <!-- Bezirk 14 – Penzing -->
+        <article class="card" data-bezirk="14">
+          <h3>Pizzeria Trattoria Toscana</h3>
+          <p>Hütteldorfer Straße 130, 1140 Wien</p>
+        </article>
+
+        <article class="card" data-bezirk="14">
+          <h3>Pizzeria Al Pacino</h3>
+          <p>Lützowgasse 14, 1140 Wien</p>
+        </article>
+
+        <article class="card" data-bezirk="14">
+          <h3>Pizzeria La Stella</h3>
+          <p>Linzer Straße 278, 1140 Wien</p>
+        </article>
+        <!-- Bezirk 15 – Rudolfsheim-Fünfhaus -->
+        <article class="card" data-bezirk="15">
+          <h3>Pizzeria Mafiosi</h3>
+          <p>Reindorfgasse 7, 1150 Wien</p>
+        </article>
+
+        <article class="card" data-bezirk="15">
+          <h3>Pizzeria Candela</h3>
+          <p>Camillo-Sitte-Gasse 21, 1150 Wien</p>
+        </article>
+
+        <article class="card" data-bezirk="15">
+          <h3>Pizza Mann</h3>
+          <p>Hütteldorfer Straße 23, 1150 Wien</p>
+        </article>
+
+        <!-- Bezirk 16 – Ottakring -->
+        <article class="card" data-bezirk="16">
+          <h3>Pizzeria Cipollino</h3>
+          <p>Rückertgasse 33, 1160 Wien</p>
+        </article>
+
+        <article class="card" data-bezirk="16">
+          <h3>Pizzeria Sofi</h3>
+          <p>Brunnenmarkt Stand 161, 1160 Wien</p>
+        </article>
+
+        <article class="card" data-bezirk="16">
+          <h3>Pizzeria D’Amigo</h3>
+          <p>Wattgasse 37, 1160 Wien</p>
+        </article>
+
+        <!-- Bezirk 17 – Hernals -->
+        <article class="card" data-bezirk="17">
+          <h3>Pizzeria La Pausa</h3>
+          <p>Hernalser Hauptstraße 137, 1170 Wien</p>
+        </article>
+
+        <article class="card" data-bezirk="17">
+          <h3>Pizzeria Trento</h3>
+          <p>Elterleinplatz 9, 1170 Wien</p>
+        </article>
+
+        <article class="card" data-bezirk="17">
+          <h3>Pizzeria Al Capriccio</h3>
+          <p>Dornbacher Straße 123, 1170 Wien</p>
+        </article>
+        <!-- Bezirk 18 – Währing -->
+        <article class="card" data-bezirk="18">
+          <h3>La Signorina</h3>
+          <p>Währinger Straße 94, 1180 Wien</p>
+        </article>
+
+        <article class="card" data-bezirk="18">
+          <h3>Pizzeria Da Nino</h3>
+          <p>Gentzgasse 129, 1180 Wien</p>
+        </article>
+
+        <article class="card" data-bezirk="18">
+          <h3>Pizzeria Salvatore</h3>
+          <p>Kutschkergasse 36, 1180 Wien</p>
+        </article>
+        <!-- Bezirk 19 – Döbling -->
+        <article class="card" data-bezirk="19">
+          <h3>L’Autentico</h3>
+          <p>Heiligenstädter Straße 31, 1190 Wien</p>
+        </article>
+
+        <article class="card" data-bezirk="19">
+          <h3>Pizzeria Valentino</h3>
+          <p>Döblinger Hauptstraße 47, 1190 Wien</p>
+        </article>
+
+        <article class="card" data-bezirk="19">
+          <h3>Pizzeria Da Salvatore</h3>
+          <p>Grinzinger Straße 72, 1190 Wien</p>
+        </article>
+
+        <!-- Bezirk 20 – Brigittenau -->
+        <article class="card" data-bezirk="20">
+          <h3>Pizzeria Da Giovanni</h3>
+          <p>Wallensteinstraße 45, 1200 Wien</p>
+        </article>
+
+        <article class="card" data-bezirk="20">
+          <h3>Pizzeria Primavera</h3>
+          <p>Hannovergasse 18, 1200 Wien</p>
+        </article>
+
+        <article class="card" data-bezirk="20">
+          <h3>Pizzeria Riva</h3>
+          <p>Klosterneuburger Straße 90, 1200 Wien</p>
+        </article>
+        <!-- Bezirk 21 – Floridsdorf -->
+        <article class="card" data-bezirk="21">
+          <h3>Lievito 48</h3>
+          <p>Floridsdorfer Markt 1, 1210 Wien</p>
+        </article>
+
+        <article class="card" data-bezirk="21">
+          <h3>Pizzeria Da Francesco</h3>
+          <p>Brünner Straße 29, 1210 Wien</p>
+        </article>
+
+        <article class="card" data-bezirk="21">
+          <h3>Pizzeria Mafiosi</h3>
+          <p>Prager Straße 42, 1210 Wien</p>
+        </article>
+        <!-- Bezirk 22 – Donaustadt -->
+        <article class="card" data-bezirk="22">
+          <h3>MIO Pizzeria</h3>
+          <p>Wagramer Straße 79, 1220 Wien</p>
+        </article>
+
+        <article class="card" data-bezirk="22">
+          <h3>Pizzeria Oase</h3>
+          <p>Kagraner Platz 1, 1220 Wien</p>
+        </article>
+
+        <article class="card" data-bezirk="22">
+          <h3>Pizzeria Venezia</h3>
+          <p>Erzherzog-Karl-Straße 81, 1220 Wien</p>
+        </article>
+        <!-- Bezirk 23 – Liesing -->
+        <article class="card" data-bezirk="23">
+          <h3>Pizzeria Da Capo</h3>
+          <p>Breitenfurter Straße 372, 1230 Wien</p>
+        </article>
+
+        <article class="card" data-bezirk="23">
+          <h3>Pizzeria Ristorante Sole</h3>
+          <p>Liesinger Platz 3, 1230 Wien</p>
+        </article>
+
+        <article class="card" data-bezirk="23">
+          <h3>Pizzeria Al Borgo</h3>
+          <p>Triester Straße 170, 1230 Wien</p>
+        </article>
+      </section>
+    </main>
+
+    <footer>
+      <p>Luca Toifelhart</p>
+      <p class="source">Quellen: Google Maps (Stand: 2026)</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
