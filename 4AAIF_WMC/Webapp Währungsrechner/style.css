@@ -1,0 +1,142 @@
+body {
+  background-color: #323232;
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
+  color: white;
+  font-size: 24px;
+}
+
+.input-container,
+.container-center {
+  min-height: 100px;
+  margin-bottom: 50px;
+}
+
+.navbar {
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.hidden {
+  display: none;
+}
+
+.page {
+  padding: 20px;
+}
+
+.input-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 32px;
+  padding-right: 32px;
+  position: relative;
+}
+
+.flag {
+  width: 60px;
+  height: 40px;
+  object-fit: cover;
+  position: absolute;
+  left: 45px;
+  z-index: 3;
+}
+
+.currency-select {
+  position: absolute;
+  left: 120px;
+  width: 90px;
+  height: 45px;
+  background-color: #444;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  z-index: 3;
+  cursor: pointer;
+}
+
+input {
+  height: 60px;
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 10px;
+  flex: 1;
+  padding-left: 230px;
+  color: white;
+  font-size: 24px;
+  text-align: center;
+}
+.menu-icon {
+  cursor: pointer;
+}
+
+.side-menu {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  background-color: #222;
+  overflow-x: hidden;
+  transition: 0.3s;
+  padding-top: 60px;
+  box-shadow: 4px 0 10px rgba(0, 0, 0, 0.6);
+}
+
+.side-menu h2 {
+  padding-left: 24px;
+  font-size: 24px;
+  color: #ffff32;
+}
+
+.side-menu a {
+  padding: 16px 24px;
+  text-decoration: none;
+  font-size: 22px;
+  color: white;
+  display: block;
+}
+
+.side-menu a:hover {
+  background-color: #444;
+}
+
+.close-btn {
+  position: absolute;
+  top: 16px;
+  right: 24px;
+  font-size: 36px;
+  cursor: pointer;
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  z-index: 90;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.container-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+  background-color: #ffff32;
+  padding: 0 32px;
+  height: 50px;
+  border: unset;
+  font-size: 24px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.8);
+  cursor: pointer;
+}

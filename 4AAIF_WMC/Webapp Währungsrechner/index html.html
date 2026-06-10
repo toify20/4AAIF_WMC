@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Währungsrechner</title>
+
+    <link rel="manifest" href="manifest.json" />
+    <link rel="stylesheet" href="style.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div id="sideMenu" class="side-menu">
+      <span class="close-btn" onclick="closeMenu()">×</span>
+
+      <h2>Währungsrechner</h2>
+
+      <a href="#" onclick="showPage('home')">Home</a>
+      <a href="#" onclick="showPage('history')">History</a>
+      <a href="#" onclick="showPage('about')">About</a>
+      <a href="#">Settings</a>
+    </div>
+
+    <div id="overlay" class="overlay" onclick="closeMenu()"></div>
+
+    <div class="navbar">
+      <img
+        src="bilder/menu.png"
+        alt=""
+        class="menu-icon"
+        onclick="openMenu()"
+      />
+      Währungsrechner
+    </div>
+
+    <div id="homePage" class="page">
+      <div class="input-container">
+        <img id="fromFlag" class="flag" src="bilder/euflag.jpg" alt="Flagge" />
+
+        <select
+          id="fromCurrency"
+          class="currency-select"
+          onchange="updateFlags()"
+        >
+          <option value="EUR">EUR</option>
+          <option value="USD">USD</option>
+          <option value="GBP">GBP</option>
+          <option value="JPY">JPY</option>
+          <option value="CHF">CHF</option>
+        </select>
+
+        <input value="100" id="amount" type="number" />
+      </div>
+
+      <div class="container-center">
+        <img
+          src="bilder/arrows.png"
+          alt=""
+          onclick="swapCurrencies()"
+          style="cursor: pointer"
+        />
+      </div>
+
+      <div class="input-container">
+        <img id="toFlag" class="flag" src="bilder/usflag.jpg" alt="Flagge" />
+
+        <select
+          id="toCurrency"
+          class="currency-select"
+          onchange="updateFlags()"
+        >
+          <option value="USD">USD</option>
+          <option value="EUR">EUR</option>
+          <option value="GBP">GBP</option>
+          <option value="JPY">JPY</option>
+          <option value="CHF">CHF</option>
+        </select>
+
+        <input id="result" type="text" readonly />
+      </div>
+
+      <div class="container-center">
+        <button onclick="calc()">Berechnen</button>
+      </div>
+    </div>
+
+    <div id="historyPage" class="page hidden">
+      <h2>History</h2>
+      <div id="historyList">No history yet.</div>
+    </div>
+
+    <div id="aboutPage" class="page hidden">
+      <h2>About</h2>
+      <p>Währungsrechner mit Fetch API.</p>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
